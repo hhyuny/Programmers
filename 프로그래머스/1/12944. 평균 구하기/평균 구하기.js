@@ -1,9 +1,3 @@
 function solution(arr) {
-    let sum = 0;
-    
-    for (const value of arr) {
-        sum += value;
-    }
-    
-    return sum / arr.length;    
+   return arr.reduce((accumulator, currentValue, index, arr) => accumulator + currentValue) / arr.length;
 }
