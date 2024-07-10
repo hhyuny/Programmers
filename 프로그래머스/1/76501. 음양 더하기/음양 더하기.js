@@ -1,17 +1,3 @@
-function solution(absolutes, signs) {
-    
-    let answer = 0;
-    
-    for (let i = 0; i < signs.length; i++) {
-        if (signs[i] === false) {
-            answer += -absolutes[i];
-        } else {
-            answer += absolutes[i];
-        }
-    }
-    
-    
-    
-    
-    return answer;
+function solution(absolutes, signs) {    
+    return absolutes.reduce((acc, cur, idx) => acc + (signs[idx] === true ? cur * 1 : cur * (-1)), 0);
 }
