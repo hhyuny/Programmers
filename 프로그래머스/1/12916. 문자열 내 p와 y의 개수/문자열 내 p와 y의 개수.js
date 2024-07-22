@@ -11,7 +11,7 @@ function solution(s){
         }
     }
     
-    return countP === countY ? true : false;
+    return countP === countY;
     
 
     
