@@ -1,22 +1,15 @@
-function solution(sizes) {    
+function solution(sizes) {
+    let sortedSizes = [[], []];
 
-    const newSizes = sizes.map(([w, h]) => (w > h ? [w, h] : [h, w]));
-    let walletSize = [0, 0];
-
-    newSizes.forEach(([w, h]) => {
-        walletSize[0] = w > walletSize[0] ? w : walletSize[0];
-        walletSize[1] = h > walletSize[1] ? h : walletSize[1];
+    sizes.forEach(([w, h]) => {
+        if (w > h) {
+            sortedSizes[0].push(w);
+            sortedSizes[1].push(h);
+        } else {
+            sortedSizes[0].push(h);
+            sortedSizes[1].push(w);
+        }
     });
 
-    return walletSize[0] * walletSize[1];
-//     let newSizes = sizes.map(([w, h]) => w > h ? [w, h] : [h, w]);
-    
-//     let walletSize = [0, 0];
-    
-//     newSizes.forEach(([w, h]) => {
-//         w > walletSize[0] ? walletSize[0] = w : walletSize[0];
-//         h > walletSize[1] ? walletSize[1] = h : walletSize[1];
-//     })
-    
-//     return walletSize[0] * walletSize[1];    
+    return Math.max(...sortedSizes[0]) * Math.max(...sortedSizes[1]);   
 }
